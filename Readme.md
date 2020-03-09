@@ -1,15 +1,16 @@
+# Nodes 2020.03.09 UCOM Study Node.js
+```
+### `node.JS`,`npm`,`javascript`
+```
+
+# Reference URL
+
 * https://nodejs.org/en/
-
 * https://d3js.org/
-
 * https://www.tensorflow.org/js
-
 * https://getbootstrap.com/
-
 * https://zh-hant.reactjs.org/
-
 * https://vuejs.org/
-
 * https://angularjs.org/
 
 # download
@@ -20,11 +21,14 @@
 * https://github.com/
 
 ## for reference only
-* https://visualstudio.microsoft.com/zh-hant/vs/features/collaborate/?rr=https%3A%2F%2Fwww.google.com%2F
-* https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html
-* https://www.trufflesuite.com/
+https://visualstudio.microsoft.com/zh-hant/vs/features/collaborate/?rr=https%3A%2F%2Fwww.google.com%2F
+
+https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html
+
+https://www.trufflesuite.com/
 
 Environment variable
+
 
 C:\Program Files\nodejs\
 
@@ -42,6 +46,7 @@ npx --version
 node --version
 npm --version
 npx --version
+
 code --version
 ```
 ## https://git-scm.com/download/win
@@ -49,11 +54,12 @@ code --version
 node --version
 npm --version
 npx --version
+
 code --version
 git --version
 
 https://github.com/adobe-fonts/source-code-pro
-```
+
 ## update source code pro font
 ```
 console.log("Hello world!")
@@ -103,6 +109,7 @@ git config --global user.email "mark@uuu.com"
 cd to your HOME DIRECTORY
 more .gitconfig
 
+
 cd c:\Users\Admin\node_JS14hr_Mar_2020
 git status
 git log
@@ -111,7 +118,22 @@ mkdir lab2_simple_npm
 cd lab2_simple_npm
 npm init -y
 
+
 cd c:\Users\Admin\node_JS14hr_Mar_2020
 code .
 
+
 add plugin, add README.md
+
+------------13:00-----------
+under github/bitbucket
++
+Repository
+
+ucom_nodejs_20200309
+
+
+cd c:\Users\Admin\node_JS14hr_Mar_2020
+
+git remote add origin https://YOUR_USERNAME@bitbucket.org/YOUR_USERNAME/YOUR_PROJECT_NAME.git
+git push -u origin master
