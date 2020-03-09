@@ -1,24 +1,24 @@
-# Nodes 2020.03.09 UCOM Study Node.js
-```
-### `node.JS`,`npm`,`javascript`
-```
+https://nodejs.org/en/
 
-# Reference URL
+https://d3js.org/
 
-* https://nodejs.org/en/
-* https://d3js.org/
-* https://www.tensorflow.org/js
-* https://getbootstrap.com/
-* https://zh-hant.reactjs.org/
-* https://vuejs.org/
-* https://angularjs.org/
+https://www.tensorflow.org/js
+
+https://getbootstrap.com/
+
+https://zh-hant.reactjs.org/
+
+https://vuejs.org/
+
+https://angularjs.org/
 
 # download
-* https://nodejs.org/dist/v12.16.1/node-v12.16.1-x64.msi
-* https://code.visualstudio.com/
-* https://www.jetbrains.com/webstorm/
-* https://bitbucket.org/
-* https://github.com/
+https://nodejs.org/dist/v12.16.1/node-v12.16.1-x64.msi
+https://code.visualstudio.com/
+https://www.jetbrains.com/webstorm/
+
+https://bitbucket.org/
+https://github.com/
 
 ## for reference only
 https://visualstudio.microsoft.com/zh-hant/vs/features/collaborate/?rr=https%3A%2F%2Fwww.google.com%2F
@@ -137,3 +137,94 @@ cd c:\Users\Admin\node_JS14hr_Mar_2020
 
 git remote add origin https://YOUR_USERNAME@bitbucket.org/YOUR_USERNAME/YOUR_PROJECT_NAME.git
 git push -u origin master
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### `node.JS`,`npm`,`javascript`
+
+npm config list
+
+C:\Users\Admin\AppData\Roaming\npm
+
+
+npm config get prefix
+
+npm install npm --global
+npm --version
+
+### update npm packages
+```
+npm install npm --global
+npm --version
+```
+
+npm list --global
+npm list --global --depth=0
+
+npm install uglify-js --global
+npm list --global --depth=0
+
+npx create-react-app lab3_simple_react
+
+cd c:\Users\Admin\node_JS14hr_Mar_2020\lab3_simple_react
+
+check-in code sofar:
+practice npm list
+
+commit
+push
+~~~~~~~~~~~~~~~~~~~~~~~~~
+create directory
+lab4_uglifyjs
+
+
+uglify_demo1.js
+~~~~~~~~~~~~~~~~~~~~~~~~~
+var object1 = {
+    "foo":250,
+    "bar":300
+}
+object1.foo += object1.bar;
+console.log(object1.foo);
+
+cd c:\Users\Admin\node_JS14hr_Mar_2020\lab4_uglifyjs
+
+node uglify_demo1.js
+
+
+uglifyjs uglify_demo1.js -c -m --mangle-props
+
+copy/paste to uglify_demo2.js
+
+node uglify_demo2.js
+
+uglifyjs uglify_demo1.js -c -m --mangle-props > demo3.js
+
+https://webpack.js.org/
+
+terminal.integrated.shell.windows
+
+{
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+}
+bottom left GEAR
+Settings
+Text Editor
+Font
+
+'Source CodeVariable', 'Courier New', monospace
+18
+bold
+
+npm search tensorflow
+npm search vaadin
+
+npm cache verify
+
+
+npm install -g --unsafe-perm node-red
+
+cd c:\Users\Admin\.node-red
+
+npm install node-red-node-arduino
+node-red
