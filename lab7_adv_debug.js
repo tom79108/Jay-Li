@@ -2,6 +2,7 @@ var http = require('http');
 function processRecord(request, response) {
     var body = 'Node.js Tutorial\n';
     var contentLength = body.length;
+    // var contentLength = body;
     response.writeHead(200, {
         'Content-Length': contentLength,
         'Content-Type': 'test/plain'
