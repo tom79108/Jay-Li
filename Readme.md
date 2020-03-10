@@ -685,3 +685,456 @@ var s2 = `
   console.log(typeof o1, typeof o2)
   console.log(o1)
   console.log(o2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var a1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+var a2 = Array.from('abcdefg')
+var a3 = 'abcdefg'.split('')
+console.log(a1, a2, a3)
+console.log(Array.isArray(a1),Array.isArray(a2),Array.isArray(a3))
+var a4 = new Array()
+a4.push('a')
+a4.push('b')
+a4.push('c')
+a4.push('d')
+console.log(a4, Array.isArray(a4))
+// push, pop
+console.log(a1.pop(), a1)
+a1.push('G')
+console.log(a1)
+console.log(a2.shift(), a2)
+a2.unshift('A')
+console.log(a2)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var a1 = [1, 2, 3, 4, 5, 6, 7, 8]
+var r1 = a1.join()
+console.log(typeof r1, r1)
+var a2 = ['red', 'yellow', 'blue']
+var r2 = a2.join()
+console.log(typeof r2, r2)
+var r3 = a2.join('-')
+console.log(r3)
+var a3 = ['www', 'uuu', 'com', 'tw']
+var r4 = a3.join('.')
+console.log(r4)
+array4 = Array.from('HelloWorld')
+console.log(array4.sort())
+var sum = 0
+a1.forEach(function (element) { sum += element }, this)
+console.log("summation of a1=", sum)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var util = require('util')
+
+console.log(123 == '123', 25.4 == '25.4', 0 == '0')
+console.log(123 === '123', 25.4 === '25.4', 0 === '0')
+var a1 = [null, undefined, 0, false, NaN, '']
+for (i = 0; i < a1.length; i++) {
+    for (j = i + 1; j < a1.length; j++) {
+        result = util.format('%s == %s? %s',a1[i], a1[j], a1[i]==a1[j])
+        console.log(result)
+        console.log('is', a1[i], '===', a1[j], '==>',a1[i] === a1[j])
+        console.log('------------')
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var x = 123
+var y = new Number(123)
+console.log(typeof x, typeof y)
+console.log(x == y, x === y)
+
+function echoMe(name) {
+    console.log("echo name:",name)
+}
+echoMe("Mark")
+echoMe()
+echoMe(undefined)
+echoMe(null)
+echoMe('p','q','r')
+echoMe(['p','q','r'])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function mySum() {
+    var sum = 0
+    for (var i = 0; i < arguments.length; i++) {
+        sum += arguments[i]
+    }
+    return sum
+}
+console.log(mySum())
+console.log(mySum(1, 2, 3))
+console.log(mySum('1', '2', '3'))
+var x1 = function (a, b) {
+    return a * b
+}
+console.log(x1(3, 5))
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var token = 'abc'
+var y = function () {
+    var token = 'def'
+    console.log('inside', token)
+}
+console.log('first outside', token)
+y()
+console.log('second outside', token)
+var x1 = function (x, y) {
+    return x * y
+}
+var x2 = (x, y) => { return x * y }
+var x3 = (x, y) => x * y
+console.log(x1(3, 4))
+console.log(x2(6, 7))
+console.log(x3(8, 9))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var x1 = [null, undefined, 0, false, "", NaN]
+x1.forEach(e => console.log(e ? "true" : "false"))
+
+var x2 = [1, 3, 5, 7, 9, 2, 4, 6, 8]
+for (index in x2) {
+    console.log('index=', index, " ,value=", x2[index])
+}
+for (item of x2){
+    console.log('value=',item)
+}
+var x3 = {
+    courseName:"NoJS",
+    duration:14,
+    location:"Taipei"
+}
+for (k in x3){
+    console.log(k, "/", x3[k])
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function Car() {
+    // field
+    this.speed = 0
+    this.number = ""
+    this.fuel = 0
+    // method
+    this.setSpeed = function (speed) { this.speed = speed }
+    this.isOverSpeed = function (speedLimit) {
+        return this.speed > speedLimit
+    }
+}
+var myCar1 = new Car()
+console.log(typeof myCar1, typeof Car)
+myCar1.setSpeed(60)
+myCar1.number = "AAA-1234"
+console.log(myCar1.number + " has speed:" + myCar1.speed)
+console.log(myCar1.isOverSpeed(100), myCar1.isOverSpeed(50))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function Car() {
+}
+// field
+Car.prototype.speed = 0
+Car.prototype.number = ""
+Car.prototype.fuel = 0
+// method
+Car.prototype.setSpeed = function (speed) { Car.prototype.speed = speed }
+Car.prototype.isOverSpeed = function (speedLimit) {
+    return Car.prototype.speed > speedLimit
+}
+function HybridCar() {
+
+}
+HybridCar.prototype = new Car()
+HybridCar.prototype.__proto__ = Car.prototype
+HybridCar.prototype.batteryLimit = 50000
+HybridCar.prototype.totalLength = function () {
+    return this.fuel * 21 + this.batteryLimit / 500
+}
+
+var myCar1 = new Car()
+console.log(typeof myCar1, typeof Car)
+myCar1.setSpeed(60)
+myCar1.number = "AAA-1234"
+console.log(myCar1.number + " has speed:" + myCar1.speed)
+console.log(myCar1.isOverSpeed(100), myCar1.isOverSpeed(50))
+//
+var myCar2 = new HybridCar()
+console.log(typeof myCar2, typeof HybridCar)
+myCar2.setSpeed(60)
+myCar2.number = "DDD-5678"
+console.log(myCar2.number + " has speed:" + myCar2.speed)
+console.log(myCar2.isOverSpeed(100), myCar2.isOverSpeed(50))
+myCar2.batteryLimit=100000
+myCar2.fuel = 70
+console.log("myCar2 total length=",myCar2.totalLength())
+
+finish basic type
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function oops() {
+    throw new Error("something went wrong, oops!")
+}
+try {
+    oops()
+    console.log("execution inside try, after oops")
+} catch (e) {
+    console.log(typeof e)
+    console.log("reason:", e.toString())
+    console.log(e)
+}
+oops()
+// this line will not be show
+console.log("program terminate line---")
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+global.coffee = 'hot latte'
+global.juice = 'lemonade'
+tea = 'earl gray'
+function printSomething(name){
+    console.time(global[name])
+    console.log(global[name])
+    console.warn(global[name])
+    console.error(global[name])
+    console.timeEnd(global[name])
+}
+console.time('TOTAL')
+printSomething('coffee')
+printSomething('juice')
+printSomething('hello')
+printSomething('tea')
+console.timeEnd('TOTAL')
+
+under project:
+lab10_modules ==> make a directory
+
+under foo.js
+module.exports = {
+    qoo: function (data) {
+        console.log("[foo]:[qoo]", data)
+    }
+}
+
+under bar.js
+
+module.exports = {
+    ooo: function (data) {
+        console.log("[bar]:[ooo]", data)
+    }
+}
+
+under index.js
+var foo = require('./foo')
+var bar = require('./bar')
+console.log('inside index.js')
+foo.qoo('hello world')
+bar.ooo('hi js modules')
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+console.log(x2)
+//console.log(x1)
+x1 = 'hello'
+var x2 = 'world'
+console.log(typeof x1, typeof x2)
+console.log(x1, x2)
+function printMessage() {
+    console.log( 'inside printmessage',x1, x2)
+}
+printMessage()
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+"use strict";
+console.log(x2)
+//console.log(x1)
+var x2 = 'world'
+x1 = 'hello'
+console.log(typeof x1, typeof x2)
+console.log(x1, x2)
+function printMessage() {
+    console.log( 'inside printmessage',x1, x2)
+}
+printMessage()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function foo() {
+    console.log('inside foo begin:', current)
+    var current = 300;
+    implyGlobal = 500;
+    console.log('inside foo after:', current)
+    console.log('inside foo, implyglobal=', implyGlobal)
+}
+
+foo()
+//console.log(current)
+console.log(implyGlobal)
+implyGlobal += 300
+console.log(implyGlobal)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var x1 = 100
+x2 = 200
+console.log(x1, x2)
+console.log(global.x1, global.x2)
+delete global.x1
+delete global.x2
+console.log(x1, x2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function varTest() {
+    var x = 100;
+    console.log("beginning, x=", x);
+    if (true) {
+        //var x = 200;
+        x = 200;
+        console.log("inside, x=", x);
+    }
+    console.log("outside, x=", x);
+}
+function letTest() {
+    let y = 30;
+    console.log("beginning, y=", y);
+    if (true) {
+        let y = 50;
+        console.log("inside, y=", y);
+    }
+    console.log("outside, y=", y);
+}
+
+varTest();
+letTest();
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function scopeTest() {
+    var x2 = 5
+    var x2 = '500'
+    console.log(x2)
+    let x3 = 3.14
+    //let x3 = 'pi'
+    console.log(x3)
+}
+
+function scopeTest2() {
+    var j = 0;
+    for (let i=j; i<10; i++){
+    //for (var i=j; i<10; i++){
+        console.log(i);
+    }
+    //console.log(i,j);
+}
+
+scopeTest()
+scopeTest2()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var a = 100;
+var b = 200;
+
+if (true) {
+    let a = 50;
+    var b= 400;
+    console.log(a);
+    console.log(b);
+}
+console.log(a)
+console.log(b)
+
+//const PROGRAM_TITLE;
+const PROGRAM_TITLE="Hello WORLD";
+//PROGRAM_TITLE += "Hi";
+//const PROGRAM_TITLE = "Hi";
+const MAX1 = 1;
+let i = 100;
+const CONST2 = i+1;
+console.log(MAX1, i, CONST2)
+i+=20
+console.log(MAX1, i, CONST2)
+//CONST2 += 50;
+const AR = [1,2,3,4,5];
+console.log(AR)
+AR.push(6)
+console.log(AR)
+var AR2 = [1,2,3,4,5];
+AR2.push(6)
+console.log(AR2)
+AR2 = ['p','q','r']
+console.log(AR2)
+//AR = ['P','Q','R']
+console.log(AR)
+
+
+data\\info.txt
+copy paste from wiki
+
+var process = require('process')
+console.log(process.cwd())
+
+var fs = require("fs")
+console.log("Program start")
+var data = fs.readFileSync('data\\info.txt')
+console.log(data.toString())
+console.log("Program terminated")
+~~~~~~~~~~~~~~~~~~~~~~~
+setTimeout(()=>{console.log("I am ready, can start to work")}, 2000)
+setTimeout(()=>{console.log("I am ready, can start to work")}, 2000)
+setTimeout(()=>{console.log("I am ready, can start to work")}, 2000)
+setTimeout(()=>{console.log("I am ready, can start to work")}, 2000)
+setTimeout(()=>{console.log("I am ready, can start to work")}, 2000)
+console.log("doing something in main thread")
+~~~~~~~~~~~~~~~~~~~~~~
+setTimeout(()=>{
+    console.log("prepare for stage2")
+    setTimeout(()=>{console.log("prepare for stage3")},2000)
+},2000)
+
+console.log("start working")
+~~~~~~~~~~~~~~~~~~~~~~~~
+"use strict";
+var fs = require('fs')
+
+fs.open('data\\info.txt', 'r', (error, handle) => {
+    if (error){
+        return console.log(error)
+    }
+    console.log("file open successful, continue")
+ });
+
+~~~~~~~~~~~~~~~~~~~
+"use strict";
+var fs = require('fs')
+console.log("program start")
+fs.open('data\\info.txt', 'r', (error, handle) => {
+    if (error) {
+        return console.log(error)
+    }
+    console.log("file open successful, continue")
+    var buffer = new Buffer(10000, 0)
+    fs.read(handle, buffer, 0, 10000, null, (error, length) => {
+        console.log("total:", length, "read")
+        const result = buffer.slice(0, length)
+        console.log("data read:", result.toString())
+        fs.close(handle, () => { })
+
+    })
+});
+console.log("program finish")
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+setTimeout(()=>{
+    try{
+
+        throw new Error("oops, happen something in another thread..")
+    }catch(e){
+        console.warn('got an error:',e)
+    }
+},2000)
+console.log('program terminated')
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+try {
+    
+    setTimeout(() => { throw new Error("HAHA") }, 2000)
+} catch (e) {
+    console.log("got an error:"+e)
+}
+console.log("program terminated")
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const p1 = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        try{
+            //throw new Error("oops!")
+            console.log("no error")
+            resolve(1000)
+        } catch(e){
+            reject(e)
+        }
+    },2000)
+})
+console.log("start p1")
+p1.then(result=>console.log("OK! result="+result))
+.catch(error=>console.error("Found exception:"+error))
+console.log("stop p1")
