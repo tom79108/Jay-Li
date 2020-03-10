@@ -31,7 +31,7 @@ console.log(typeof myCar2, typeof HybridCar);
 NewCar.setSpeed(80);
 NormalCar.number = "DDD-5678";
 NormalCar.fuel = 70;
-console.log(NewCar.number + " has speed:" + NewCar.speed)
-console.log(NewCar.isOverSpeed(100), NewCar.isOverSpeed(50))
+console.log(NewCar.number + " has speed:" + NewCar.speed);
+console.log(NewCar.isOverSpeed(100), NewCar.isOverSpeed(50));
 NewCar.batteryLimit = 100000;
 console.log("myCar2 total length=",NewCar.totalLength);
