@@ -8,5 +8,5 @@ console.log('X2', x2, x2.length);
 
 var StrSplit = "abcdefg1234567中文輸入也沒有問題";
 StrSplit.split('').forEach((e) => {
-    console.log('*', e);
+    console.log('*', StrSplit.indexOf(e) + 1, e, typeof e);
 })
